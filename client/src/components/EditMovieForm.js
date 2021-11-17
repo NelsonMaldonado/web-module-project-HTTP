@@ -25,6 +25,17 @@ const EditMovieForm = (props) => {
     })
   }
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5001/api/movies/${id}`)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log({ error })
+      })
+  }, [])
+
   const handleSubmit = (e) => {
     e.preventDefault()
   }
